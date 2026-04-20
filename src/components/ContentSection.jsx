@@ -86,46 +86,14 @@ export default function ContentSection() {
     privacy: "/privacy-policy",
   };
 
-  const yachts = [
-    { name: "Oryx 36 ft", to: "/dubai-yacht-rental-oryx-36ft", size: "36 ft", tag: "Daily yacht rental" },
-    { name: "Majesty 44 ft", to: "/dubai-yacht-rental-majesty-44ft", size: "44 ft", tag: "Dubai yacht" },
-    { name: "Majesty 48 ft", to: "/dubai-yacht-rental-majesty-48ft", size: "48 ft", tag: "Yacht trip in Dubai" },
-    { name: "Majesty 56 ft", to: "/dubai-yacht-rental-majesty-56ft", size: "56 ft", tag: "Dubai yachts" },
-    { name: "Sunseeker 70 ft", to: "/dubai-yacht-rental-sunseeker-70ft", size: "70 ft", tag: "Yacht charter" },
-    { name: "Modern 100 ft", to: "/dubai-yacht-rental-modern-100ft", size: "100 ft", tag: "Yacht rental" },
-    { name: "VanDutch 40 ft", to: "/dubai-yacht-rental-vandutch-40ft", size: "40 ft", tag: "Yacht hire" },
-    { name: "Pershing White 54 ft", to: "/dubai-yacht-rental-pershing-white-54ft", size: "54 ft", tag: "Yacht hire" },
-    { name: "Pershing Grey 54 ft", to: "/dubai-yacht-rental-pershing-gray-54ft", size: "54 ft", tag: "Dubai Marina yacht hire" },
-    { name: "Axopar 63 ft", to: "/dubai-yacht-rental-axi-63ft", size: "63 ft", tag: "Dubai Marina yacht rental" },
-    { name: "Ferretti 67 ft", to: "/dubai-yacht-rental-ferretti-67ft", size: "67 ft", tag: "Yacht rental" },
-    { name: "Ferretti 78 ft", to: "/dubai-yacht-rental-ferretti-78ft", size: "78 ft", tag: "Dubai boat trips" },
-    { name: "Galeon 78 ft", to: "/dubai-yacht-rental-galeon-78ft", size: "78 ft", tag: "Dubai Marina boat trips" },
-    { name: "Riva 82 ft", to: "/dubai-yacht-rental-riva-82ft", size: "82 ft", tag: "Dubai boat trip" },
-    { name: "Majesty 88 ft", to: "/dubai-yacht-rental-majesty-88ft", size: "88 ft", tag: "Dubai cruise" },
-    { name: "Hygen 90 ft", to: "/dubai-yacht-rental-haigan-90ft", size: "90 ft", tag: "Dubai Marina cruise" },
-    { name: "Sunseeker 95 ft", to: "/dubai-yacht-rental-sunseeker-95ft", size: "95 ft", tag: "Dinner on a yacht" },
-    { name: "Majesty 101 ft", to: "/dubai-yacht-rental-majesty-101ft", size: "101 ft", tag: "Dinner on a Marina yacht" },
-    { name: "Sunseeker 108 ft", to: "/dubai-yacht-rental-sunseeker-108ft", size: "108 ft", tag: "Dubai Marina yacht hire" },
-    { name: "Baglietto 108 ft", to: "/dubai-yacht-rental-baglietto-108ft", size: "108 ft", tag: "Yacht hire" },
-    { name: "Benetti 110 ft", to: "/dubai-yacht-rental-benetti-110ft", size: "110 ft", tag: "Book yachts in Dubai" },
-    { name: "Benetti 114 ft", to: "/dubai-yacht-rental-benetti-114ft", size: "114 ft", tag: "Family cruise" },
-    { name: "Santorini 115 ft", to: "/dubai-yacht-rental-santorini-115ft", size: "115 ft", tag: "Dinner cruise in Dubai" },
-    { name: "Elite Yacht 120ft Saffuriya", to: "/dubai-yacht-rental-saffuriya-120ft", size: "120 ft", tag: "Dinner cruise in Marina" },
-    { name: "Sunseeker 131 ft", to: "/dubai-yacht-rental-sunseeker-131ft", size: "131 ft", tag: "Dubai Marina yacht prices" },
-    { name: "Royalty 134 ft", to: "/dubai-yacht-rental-royalty-134ft", size: "134 ft", tag: "Dubai yacht prices" },
-    { name: "Sensation 164 ft", to: "/dubai-yacht-rental-sensation-164ft", size: "164 ft", tag: "Dubai yacht rental prices" },
-  ];
-
   const quickLinks = [
-    { label: "Book yachts in Dubai", to: pages.offers },
-    { label: "Yacht hire", to: pages.services },
-    { label: "Yacht rental", to: pages.services },
-    { label: "Yacht charter", to: pages.services },
-    { label: "Dubai yacht", to: pages.yachtsOur },
-    { label: "Dubai yachts", to: pages.yachtsOur },
-    { label: "Dubai Marina yacht prices", to: pages.offers },
-    { label: "Dubai yacht prices", to: pages.offers },
-    { label: "Dubai Marina boarding points", to: pages.instructions },
+    { label: "Private sunset cruises", to: pages.services },
+    { label: "Birthday parties", to: pages.offers },
+    { label: "Corporate events", to: pages.corporate },
+    { label: "Fishing trips", to: pages.services },
+    { label: "Overnight charters", to: pages.contact },
+    { label: "View full fleet", to: pages.yachtsOur },
+    { label: "Get a quote", to: pages.contact },
   ];
 
   const tips = [
@@ -488,38 +456,6 @@ export default function ContentSection() {
               <p className="text-[14px] font-semibold text-black/90">{t.tip}</p>
               <p className="mt-2 text-[13px] leading-relaxed text-black/65">{t.detail}</p>
             </SoftCard>
-          ))}
-        </div>
-
-        {/* Yacht catalog */}
-        <H2 id="yacht-catalog">Yacht Catalog — Direct Links</H2>
-        <p className="mt-3 text-black/70">
-          Pick from the list below — each card takes you directly to the yacht page with full specs, photos, and pricing.
-        </p>
-
-        <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {yachts.map((y) => (
-            <Link
-              key={y.to}
-              to={y.to}
-              className="group rounded-2xl border border-black/10 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition hover:-translate-y-0.5 hover:border-black/20 hover:shadow-[0_16px_44px_rgba(0,0,0,0.10)]"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <p className="text-[14px] font-semibold text-black/90 tracking-[0.02em]">{y.name}</p>
-                <span className="shrink-0 rounded-full border border-black/10 px-2 py-0.5 text-[11px] text-black/60">
-                  {y.size}
-                </span>
-              </div>
-              <p className="mt-2 text-[13px] leading-relaxed text-black/65">
-                Ideal for <K>{y.tag}</K> and a premium <K>yacht trip in Dubai</K>.
-              </p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="inline-flex rounded-full px-3 py-1 text-[11px] tracking-[0.12em] uppercase border border-black/10 text-black/60 group-hover:border-black/25 group-hover:text-black transition">
-                  Details
-                </span>
-                <span className="text-[11px] text-black/50">Yacht rental</span>
-              </div>
-            </Link>
           ))}
         </div>
 
