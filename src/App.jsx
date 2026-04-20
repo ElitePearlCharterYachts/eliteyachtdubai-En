@@ -19,8 +19,6 @@ const PackagesEn = lazy(() => import("./pages/PackagesEn"));
 const YachtsEn = lazy(() => import("./pages/YachtsEn"));
 const AboutEn = lazy(() => import("./pages/AboutEn"));
 const BestYachtCharterDubaiEn = lazy(() => import("./pages/BestYachtCharterDubaiEn"));
-const BlogsPageEn = lazy(() => import("./pages/BlogsPageEn"));
-const BlogDetailsPageEn = lazy(() => import("./pages/BlogDetailsPageEn"));
 const FAQEn = lazy(() => import("./pages/FAQEn"));
 const OwnerEn = lazy(() => import("./pages/OwnerEn"));
 const ContactEn = lazy(() => import("./pages/ContactEn"));
@@ -139,8 +137,6 @@ export default function App() {
             <Route path="/best-yacht-company" element={<BestYachtCharterDubaiEn />} />
             <Route path="/contact-us" element={<ContactEn />} />
 
-            <Route path="/blogs" element={<BlogsPageEn />} />
-            <Route path="/blogs/:slug" element={<BlogDetailsPageEn />} />
 
             <Route path="/terms-and-conditions" element={<TermsEn />} />
             <Route path="/refund-policy" element={<RefundPolicyEn />} />

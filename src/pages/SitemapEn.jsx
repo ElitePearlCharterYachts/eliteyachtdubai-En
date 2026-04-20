@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { listPublishedBlogs } from "../lib/blogsPublic";
 
 function Container({ children }) {
   return <div className="max-w-[1500px] mx-auto px-6 lg:px-10">{children}</div>;
@@ -91,8 +90,6 @@ function inferBucket(y) {
 
 export default function Sitemap() {
   const [yachts, setYachts] = useState([]);
-  const [blogs, setBlogs] = useState([]);
-  const [blogsLoading, setBlogsLoading] = useState(true);
   const [q, setQ] = useState("");
 
   // Yachts from JSON
@@ -101,29 +98,6 @@ export default function Sitemap() {
       .then((r) => r.json())
       .then((data) => setYachts(Array.isArray(data) ? data : []))
       .catch(() => setYachts([]));
-  }, []);
-
-  useEffect(() => {
-    let alive = true;
-
-    (async () => {
-      try {
-        setBlogsLoading(true);
-        const { data } = await listPublishedBlogs({ limit: 500, from: 0 });
-        if (!alive) return;
-        setBlogs(Array.isArray(data) ? data : []);
-      } catch (e) {
-        if (!alive) return;
-        setBlogs([]);
-      } finally {
-        if (!alive) return;
-        setBlogsLoading(false);
-      }
-    })();
-
-    return () => {
-      alive = false;
-    };
   }, []);
 
   const yachtLinks = useMemo(() => {
@@ -172,32 +146,6 @@ export default function Sitemap() {
     return out;
   }, [yachtLinks]);
 
-  const blogLinks = useMemo(() => {
-    const list = (blogs || [])
-      .map((b) => {
-        const slug = (b?.slug || "").trim();
-        if (!slug) return null;
-
-        return {
-          slug,
-          title: b?.title || slug,
-          path: `/blog/${slug}`, // adjust if your route is different
-        };
-      })
-      .filter(Boolean);
-
-    const seen = new Set();
-    const unique = [];
-    for (const item of list) {
-      if (seen.has(item.slug)) continue;
-      seen.add(item.slug);
-      unique.push(item);
-    }
-
-    unique.sort((a, b) => a.title.localeCompare(b.title));
-    return unique;
-  }, [blogs]);
-
   const filteredYachtGroups = useMemo(() => {
     const needle = q.trim().toLowerCase();
     if (!needle) return groupedYachts;
@@ -214,18 +162,6 @@ export default function Sitemap() {
       ])
       .filter(([, items]) => items.length > 0);
   }, [q, groupedYachts]);
-
-  const filteredBlogs = useMemo(() => {
-    const needle = q.trim().toLowerCase();
-    if (!needle) return blogLinks;
-
-    return blogLinks.filter(
-      (b) =>
-        b.slug.toLowerCase().includes(needle) ||
-        b.title.toLowerCase().includes(needle) ||
-        b.path.toLowerCase().includes(needle)
-    );
-  }, [q, blogLinks]);
 
   const SERVICES = [
     { to: "/services", label: "Services" },
@@ -262,7 +198,7 @@ export default function Sitemap() {
           <div className="pt-24 pb-10">
             <PageTitle
               title="Sitemap"
-              subtitle="Organized links for the Elite Yachts fleet, services, packages, pages, and blog."
+              subtitle="Organized links for the Elite Yachts fleet, services, packages, and pages."
             />
 
             <div className="mt-7 max-w-2xl mx-auto">
@@ -270,7 +206,7 @@ export default function Sitemap() {
                 <input
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
-                  placeholder="Search for a yacht, page, or article…"
+                  placeholder="Search for a yacht or page…"
                   className="
                     w-full rounded-2xl border border-black/10 bg-white
                     px-4 py-3 text-sm outline-none
@@ -356,32 +292,6 @@ export default function Sitemap() {
                 </div>
               </Panel>
 
-              {/* Blog */}
-              <Panel className="p-6">
-                <GroupTitle title="Blog" />
-
-                <div className="space-y-1">
-                  <SitemapItem to="/blog" label="Blog (All Articles)" />
-                </div>
-
-                <div className="mt-4 space-y-1">
-                  {filteredBlogs.map((it) => (
-                    <SitemapItem key={it.slug} to={it.path} label={it.title} />
-                  ))}
-                </div>
-
-                {blogsLoading ? (
-                  <div className="mt-4 text-sm text-black/55">
-                    Loading blog articles…
-                  </div>
-                ) : null}
-
-                {!blogsLoading && !blogLinks.length ? (
-                  <div className="mt-4 text-sm text-black/55">
-                    No published articles right now (Supabase: status="published").
-                  </div>
-                ) : null}
-              </Panel>
             </div>
           </div>
         </Container>
