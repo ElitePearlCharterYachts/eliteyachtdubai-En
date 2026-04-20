@@ -1,73 +1,70 @@
 {
   "fleet": {
-    "backgroundImage": "/images/banners/fleet.webp",
-    "eyebrow": "إيليت™ يخوت دبي • Dubai Marina • VIP",
-    "title": "لم تجد اليخت الذي تبحث عنه في دبي؟",
-    "subtitle": "أخبرنا بالحجم (من 36FT إلى 300FT)، عدد الضيوف، الميزانية، ووقت الإبحار — وسنقترح لك فورًا أفضل خيارات تأجير يخوت فاخرة في دبي مع توافر لحظي وأسعار واضحة وخدمة VIP. احجز يخت دبي عبر واتساب خلال دقائق.",
+    "backgroundImage": "/en/images/banners/fleet.webp",
+    "eyebrow": "Elite™ Yachts Dubai • Dubai Marina • VIP",
+    "title": "Didn’t find the yacht you’re looking for in Dubai?",
+    "subtitle": "Tell us the size (36FT to 300FT), guest count, budget, and preferred sailing time — and we’ll instantly recommend the best luxury yacht rental options in Dubai with real-time availability, transparent pricing, and VIP service. Book your Dubai yacht on WhatsApp in minutes.",
     "primary": {
-      "label": "واتساب — احجز يخت دبي الآن",
+      "label": "WhatsApp — Book a Dubai Yacht Now",
       "href": "https://wa.me/+971569006603?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85",
       "icon": "fa-brands fa-whatsapp"
     },
     "secondary": {
-      "label": "اتصل — حجز يخت دبي مارينا",
+      "label": "Call — Dubai Marina Yacht Booking",
       "href": "tel:971569006603",
       "icon": "fa-solid fa-phone"
     },
-    "note": "توافر لحظي • رد سريع • تأجير يخت دبي مارينا • Luxury Yacht Rental Dubai • خدمة VIP"
+    "note": "Real-time availability • Fast response • Dubai Marina yacht rental • Luxury Yacht Rental Dubai • VIP service"
   },
-
   "yachtDetails": {
-    "backgroundImage": "/images/banners/fleet.webp",
-    "eyebrow": "حجز يخت خاص • Elite Yachts Dubai",
-    "title": "جاهز لحجز هذا اليخت الفاخر في دبي؟",
-    "subtitle": "نؤكد التوافر الآن، ننسّق المسار (دبي مارينا، نخلة جميرا، برج العرب)، ونرتّب الخدمات الإضافية مثل الضيافة والديكور والـ VIP — لتجربة تأجير يخت فاخر في دبي بمعايير إيليت™ وخطوات واضحة وسريعة.",
+    "backgroundImage": "/en/images/banners/fleet.webp",
+    "eyebrow": "Private Yacht Booking • Elite Yachts Dubai",
+    "title": "Ready to book this luxury yacht in Dubai?",
+    "subtitle": "We’ll confirm availability now, plan your route (Dubai Marina, Palm Jumeirah, Burj Al Arab), and arrange upgrades like catering, decor, and VIP options — for a premium Dubai yacht rental experience with Elite™ standards and fast, clear steps.",
     "primary": {
-      "label": "واتساب — تأكيد التوفر والحجز",
+      "label": "WhatsApp — Confirm Availability & Book",
       "href": "https://wa.me/+971569006603?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85",
       "icon": "fa-brands fa-whatsapp"
     },
     "secondary": {
-      "label": "راسلنا — عرض سعر سريع",
+      "label": "Email — Quick Quote Request",
       "href": "mailto:info@elitepearlcharter.com?subject=Elite%20Yachts%20Dubai%20-%20Yacht%20Booking%20Request",
       "icon": "fa-regular fa-envelope"
     },
-    "note": "Dubai Marina • Palm Jumeirah • Burj Al Arab • تأجير يخت دبي • يخت خاص في دبي • Luxury Yacht Charter"
+    "note": "Dubai Marina • Palm Jumeirah • Burj Al Arab • Dubai yacht rental • Private yacht in Dubai • Luxury yacht charter"
   },
-
   "contact": {
-    "backgroundImage": "/images/banners/contactcta.webp",
-    "eyebrow": "تواصل إيليت™ • تأجير يخوت دبي",
-    "title": "دعنا نخطط تجربة تأجير يختك في دبي — VIP",
-    "subtitle": "فعاليات الشركات، أعياد الميلاد، طلبات الزواج، حفلات Marry Me، رحلات الغروب — نرتّب كل التفاصيل باحتراف: يخت خاص في دبي مارينا، طاقم ضيافة، تنظيم موسيقى وديكور، وخيارات كونسيرج حسب الطلب. تواصل معنا الآن للحصول على أفضل عرض لتأجير يخت دبي.",
+    "backgroundImage": "/en/images/banners/contactcta.webp",
+    "eyebrow": "Contact Elite™ • Dubai Yacht Rental",
+    "title": "Let’s plan your Dubai yacht rental experience — VIP",
+    "subtitle": "Corporate events, birthdays, proposals, Marry Me setups, sunset cruises — we handle everything professionally: a private yacht in Dubai Marina, hospitality crew, music and decor coordination, plus concierge options on request. Contact us now for the best Dubai yacht rental offer.",
     "primary": {
-      "label": "واتساب — تواصل مع كونسيرج إيليت",
+      "label": "WhatsApp — Talk to Elite Concierge",
       "href": "https://wa.me/+971569006603?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85",
       "icon": "fa-brands fa-whatsapp"
     },
     "secondary": {
-      "label": "اتصال — حجز يخت دبي",
+      "label": "Call — Dubai Yacht Booking",
       "href": "tel:971569006603",
       "icon": "fa-solid fa-phone"
     },
-    "note": "Luxury Yacht Rental Dubai • دعم سريع • أسطول فاخر 36FT–300FT • خيارات VIP • حجوزات دبي مارينا"
+    "note": "Luxury Yacht Rental Dubai • Fast support • Luxury fleet 36FT–300FT • VIP options • Dubai Marina bookings"
   },
-
   "Formula": {
-    "backgroundImage": "/images/banners/formula1cta.webp",
-    "eyebrow": "فورمولا 1® • تجربة VIP على يخت فاخر",
-    "title": "استضف عطلة أسبوع السباق على يخت فاخر خاص — تجربة إيليت™ VIP",
-    "subtitle": "خلال أسبوع السباق، جهّز تجربة حصرية على يخت خاص: ضيافة شركات، جلسات VIP، فعاليات مشاهير، وحفلات ما بعد الحدث على متن اليخت — مع تنسيق احترافي من إيليت™ يشمل التوقيت، المسارات، والخيارات الإضافية مثل الضيافة والديكور والكونسيرج.",
+    "backgroundImage": "/en/images/banners/formula1cta.webp",
+    "eyebrow": "Formula 1® • VIP Experience on a Luxury Yacht",
+    "title": "Host race-weekend in style on a private luxury yacht — Elite™ VIP experience",
+    "subtitle": "During race week, create an exclusive private-yacht experience: corporate hospitality, VIP lounges, celebrity gatherings, and after-event parties onboard — expertly coordinated by Elite™ including timing, routes, and upgrades like catering, decor, and concierge services.",
     "primary": {
-      "label": "واتساب — كونسيرج أسبوع السباق",
+      "label": "WhatsApp — Race Week Concierge",
       "href": "https://wa.me/+971569006603?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85",
       "icon": "fa-brands fa-whatsapp"
     },
     "secondary": {
-      "label": "اتصال — حجوزات VIP",
+      "label": "Call — VIP Bookings",
       "href": "tel:971569006603",
       "icon": "fa-solid fa-phone"
     },
-    "note": "VIP • أماكن محدودة • ضيافة شركات • يخت خاص في دبي • Luxury Yacht Charter Dubai"
+    "note": "VIP • Limited availability • Corporate hospitality • Private yacht in Dubai • Luxury yacht charter Dubai"
   }
 }

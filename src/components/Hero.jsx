@@ -4,7 +4,7 @@ import hero1600 from "../assets/hero/hero-bg-1600.webp";
 
 export default function Hero() {
   return (
-    <section lang="ar" dir="rtl" className="relative w-full bg-white">
+    <section lang="en" dir="ltr" className="relative w-full bg-white">
       <div className="relative w-full h-[72svh] sm:h-[86svh] lg:h-screen overflow-hidden">
         <picture>
           <source
@@ -23,7 +23,7 @@ export default function Hero() {
             src={hero900}
             width="900"
             height="1200"
-            alt="تأجير يخوت فاخرة في دبي مارينا مع إيليت يخوت دبي"
+            alt="Luxury yacht rental in Dubai Marina with Elite Yacht Dubai"
             className="absolute inset-0 h-full w-full object-cover object-[50%_70%] sm:object-center scale-[1.04] sm:scale-100"
             loading="eager"
             fetchPriority="high"
@@ -40,69 +40,69 @@ export default function Hero() {
             <div className="h-full flex items-center justify-center">
               <div className="w-full max-w-[560px] sm:max-w-[680px] lg:max-w-[920px] rounded-3xl border border-white/25 bg-white/10 backdrop-blur-lg shadow-[0_30px_90px_rgba(0,0,0,0.35)] p-4 sm:p-7 lg:p-9 text-center">
                 <div className="flex flex-wrap justify-center items-center gap-2">
-                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] sm:text-[11px] tracking-[0.22em] text-white/90">
-                    دبي مارينا
+                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[9px] sm:text-[10px] tracking-[0.22em] text-white/90">
+                    Dubai Marina
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] sm:text-[11px] tracking-[0.22em] text-white/90">
-                    خصوصية تامة
+                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[9px] sm:text-[10px] tracking-[0.22em] text-white/90">
+                    Full Privacy
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] sm:text-[11px] tracking-[0.22em] text-white/90">
-                    خدمة VIP
+                  <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[9px] sm:text-[10px] tracking-[0.22em] text-white/90">
+                    VIP Service
                   </span>
                 </div>
 
-                <h1 className="mt-4 text-white font-logo leading-[1.05] text-[26px] sm:text-[42px] lg:text-[74px]">
-                  تأجير يخوت فاخرة في دبي
-                  <span className="block text-white/85 mt-2 text-[14px] sm:text-[18px] lg:text-[22px] font-semibold tracking-wide">
-                    إيليت يخوت دبي™ — تجربة راقية للعائلات والأصدقاء
+                <h1 className="mt-4 text-white font-logo leading-[1.08] text-[22px] sm:text-[36px] lg:text-[58px]">
+                  Luxury Yacht Rental in Dubai
+                  <span className="block text-white/85 mt-2 text-[12px] sm:text-[15px] lg:text-[18px] font-semibold tracking-wide">
+                    Elite Yacht Dubai™ — A refined experience for families and friends
                   </span>
                 </h1>
 
                 <div className="mt-4 sm:mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-                <p className="mt-4 sm:mt-5 text-white/85 leading-relaxed text-[12px] sm:text-[13px] lg:text-[14px] max-w-[720px] mx-auto">
-                  احجز يخت في دبي مارينا مع طاقم محترف وخيارات تناسب العائلات والمجموعات. رحلات غروب، حفلات، مناسبات خاصة،
-                  وتجارب VIP بحجز مباشر وتأكيد سريع.
+                <p className="mt-4 sm:mt-5 text-white/85 leading-relaxed text-[11px] sm:text-[12.5px] lg:text-[13.5px] max-w-[680px] mx-auto">
+                  Book a private yacht in Dubai Marina with a professional crew and options tailored for families and groups.
+                  Sunset cruises, parties, private occasions, and VIP experiences with direct booking and fast confirmation.
                 </p>
 
                 <div className="mt-5 sm:mt-6 flex justify-center">
                   <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full max-w-[520px]">
                     <a
-                      href="https://wa.me/+971569006603?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85"
+                      href="https://wa.me/971569006603?text=Hello%20Elite%20Yacht%20Dubai"
                       target="_blank"
                       rel="noreferrer"
-                      aria-label="واتساب"
-                      className="inline-flex items-center justify-center gap-2 rounded-full px-4 sm:px-7 py-3 bg-white text-black border border-white text-[12px] sm:text-[14px] font-bold tracking-[0.10em] sm:tracking-[0.18em] shadow-[0_18px_46px_rgba(0,0,0,0.30)] hover:bg-white/90 hover:shadow-[0_22px_60px_rgba(0,0,0,0.35)] transition w-full"
+                      aria-label="WhatsApp"
+                      className="inline-flex items-center justify-center gap-2 rounded-full px-4 sm:px-6 py-2.5 bg-white text-black border border-white text-[11px] sm:text-[13px] font-bold tracking-[0.14em] shadow-[0_18px_46px_rgba(0,0,0,0.30)] hover:bg-white/90 hover:shadow-[0_22px_60px_rgba(0,0,0,0.35)] transition w-full"
                     >
                       <i className="fa-brands fa-whatsapp text-[16px]" />
-                      احجز واتساب
+                      Book on WhatsApp
                     </a>
 
                     <a
                       href="tel:+971569006603"
-                      aria-label="اتصل الآن"
-                      className="inline-flex items-center justify-center gap-2 rounded-full px-4 sm:px-7 py-3 bg-transparent text-white border border-white/35 text-[12px] sm:text-[14px] font-bold tracking-[0.10em] sm:tracking-[0.18em] hover:border-white/60 hover:bg-white/10 transition w-full"
+                      aria-label="Call Now"
+                      className="inline-flex items-center justify-center gap-2 rounded-full px-4 sm:px-6 py-2.5 bg-transparent text-white border border-white/35 text-[11px] sm:text-[13px] font-bold tracking-[0.14em] hover:border-white/60 hover:bg-white/10 transition w-full"
                     >
                       <i className="fa-solid fa-phone text-[14px]" />
-                      اتصل الآن
+                      Call Now
                     </a>
                   </div>
                 </div>
 
-                <div className="mt-4 sm:mt-5 flex flex-wrap justify-center items-center gap-3 text-[10px] sm:text-[11px] tracking-[0.18em] text-white/80">
+                <div className="mt-4 sm:mt-5 flex flex-wrap justify-center items-center gap-3 text-[9px] sm:text-[10px] tracking-[0.16em] text-white/80">
                   <span className="inline-flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-                    حجز مباشر
+                    Direct Booking
                   </span>
                   <span className="opacity-40">•</span>
                   <span className="inline-flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-                    طاقم محترف
+                    Professional Crew
                   </span>
                   <span className="opacity-40">•</span>
                   <span className="inline-flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-                    رحلات VIP
+                    VIP Cruises
                   </span>
                 </div>
               </div>

@@ -1,312 +1,296 @@
 import { useMemo, useState } from "react";
 
 const FAQS = [
-  // 1-10: الحجز والتوفر
   {
-    q: "كيف أحجز يخت إيليت في دبي؟",
-    a: "يمكنك حجز يخت إيليت عبر الموقع، أو واتساب، أو الاتصال المباشر. نؤكد لك تفاصيل الرحلة ونرسل تأكيد الحجز فورًا."
+    q: "How do I book an Elite yacht in Dubai?",
+    a: "You can book through the website, WhatsApp, or by calling us directly. We confirm trip details and send booking confirmation immediately."
   },
   {
-    q: "هل توفر يخت إيليت فوري وبالوقت الحقيقي؟",
-    a: "نعم، التوفر في يخت إيليت يعتمد على نظام توفر فوري (Real-Time Availability) ويتم التأكيد مباشرة بعد الدفع."
+    q: "Is Elite yacht availability real-time?",
+    a: "Yes. Availability is confirmed in real time and your booking is finalized right after payment."
   },
   {
-    q: "ما هي خطوات تأكيد حجز يخت إيليت؟",
-    a: "اختيار اليخت والوقت → تأكيد التوفر → الدفع → استلام رسالة/إيصال تأكيد → مشاركة موقع الانطلاق وتعليمات الصعود."
+    q: "What are the steps to confirm an Elite yacht booking?",
+    a: "Choose yacht & time → confirm availability → pay → receive confirmation/receipt → get departure location + boarding instructions."
   },
   {
-    q: "هل يمكن حجز يخت إيليت في نفس اليوم؟",
-    a: "نعم حسب التوفر. أرسل وقتك المفضل وعدد الأشخاص وسنقترح أفضل خيار من يخت إيليت فورًا."
+    q: "Can I book an Elite yacht on the same day?",
+    a: "Yes, subject to availability. Share your preferred time and guest count and we’ll recommend the best available option."
   },
   {
-    q: "هل يلزم بيانات هوية لحجز يخت إيليت؟",
-    a: "قد نطلب اسم الحاجز ورقم التواصل وبعض التفاصيل لتأكيد حجز يخت إيليت وتنظيم دخول الضيوف."
+    q: "Do I need ID details to book an Elite yacht?",
+    a: "We may request the booker’s name, contact number, and a few details to confirm the booking and arrange guest access."
   },
   {
-    q: "هل يمكن تعديل وقت حجز يخت إيليت بعد الدفع؟",
-    a: "يمكن التعديل حسب التوفر وسياسة الحجز. الأفضل التواصل مبكرًا لضمان نفس مستوى يخت إيليت."
+    q: "Can I change my Elite yacht booking time after payment?",
+    a: "Changes are possible based on availability and the booking policy. Contact us early to keep the same yacht level and timing."
   },
   {
-    q: "هل يمكن تمديد رحلة يخت إيليت أثناء الإبحار؟",
-    a: "نعم، يمكن تمديد رحلة يخت إيليت حسب التوفر ويتم احتساب الساعات الإضافية."
+    q: "Can I extend the Elite yacht trip while cruising?",
+    a: "Yes, extensions are possible subject to availability, and extra hours are charged accordingly."
   },
   {
-    q: "ما الحد الأدنى لمدة حجز يخت إيليت؟",
-    a: "الحد الأدنى لحجز يخت إيليت هو ساعتين."
+    q: "What is the minimum booking duration?",
+    a: "The minimum booking duration is 2 hours."
   },
   {
-    q: "هل يوجد حد أقصى لمدة حجز يخت إيليت؟",
-    a: "لا يوجد حد ثابت—يمكنك حجز يخت إيليت لعدة ساعات أو يوم كامل حسب التوفر."
+    q: "Is there a maximum booking duration?",
+    a: "There’s no fixed maximum. You can book for multiple hours or a full day depending on availability."
   },
   {
-    q: "هل يمكنني حجز يخت إيليت لرحلة شروق أو غروب؟",
-    a: "نعم، رحلات الشروق والغروب من أكثر الأوقات طلبًا على يخت إيليت—ننصح بالحجز المبكر."
-
+    q: "Can I book sunrise or sunset cruises?",
+    a: "Yes. Sunrise and sunset are the most requested times, so we recommend booking early."
   },
 
-  // 11-20: الدفع والفواتير
   {
-    q: "ما طرق الدفع لحجز يخت إيليت؟",
-    a: "نقبل الدفع الإلكتروني الآمن، بطاقات الائتمان/الخصم، التحويل البنكي، وأحيانًا الدفع النقدي حسب الترتيبات."
+    q: "What payment methods do you accept?",
+    a: "We accept secure online payments, credit/debit cards, bank transfers, and sometimes cash by arrangement."
   },
   {
-    q: "هل يجب دفع كامل مبلغ يخت إيليت لتأكيد الحجز؟",
-    a: "في معظم الحالات نعم لتأكيد يخت إيليت وحجز الوقت رسميًا. للحجوزات الكبيرة قد تتوفر دفعة مقدمة."
+    q: "Do I need to pay the full amount to confirm the booking?",
+    a: "In most cases, yes, to officially reserve the time slot. For larger bookings, a deposit option may be available."
   },
   {
-    q: "هل يوجد إيصال أو فاتورة لحجز يخت إيليت؟",
-    a: "نعم، بعد الدفع نرسل إيصالًا/تأكيدًا لحجز يخت إيليت يتضمن التاريخ والوقت والمدة."
+    q: "Do you provide a receipt or invoice?",
+    a: "Yes. After payment, we send a receipt/confirmation with the date, time, and duration."
   },
   {
-    q: "هل الأسعار تشمل الضريبة عند حجز يخت إيليت؟",
-    a: "عادةً نعم، ويتم توضيح ذلك قبل الدفع لضمان شفافية حجز يخت إيليت."
+    q: "Do prices include VAT?",
+    a: "Usually yes, and we confirm it clearly before payment to ensure transparency."
   },
   {
-    q: "هل يوجد تأمين أو وديعة على يخت إيليت؟",
-    a: "في بعض الرحلات الخاصة أو التجهيزات الإضافية قد تُطلب وديعة—سيتم إبلاغك بذلك قبل تأكيد يخت إيليت."
+    q: "Is there a security deposit?",
+    a: "For some private trips or extra setups, a refundable deposit may be required. We’ll inform you before confirmation."
   },
   {
-    q: "هل توجد رسوم إضافية غير معلنة على يخت إيليت؟",
-    a: "لا، لا توجد رسوم خفية. أي إضافة (ديكور/شيف/نقل/تموين) يتم توضيحها قبل التأكيد."
+    q: "Are there any hidden charges?",
+    a: "No. Any add-ons (decoration, chef, transport, catering) are quoted clearly before you confirm."
   },
   {
-    q: "هل يمكن الدفع لجزء من الضيوف والجزء الآخر لاحقًا في يخت إيليت؟",
-    a: "يمكن ترتيب ذلك حسب نوع الحجز، لكن تأكيد يخت إيليت يعتمد على اكتمال الدفع وفق الاتفاق."
+    q: "Can guests split the payment?",
+    a: "It can be arranged depending on the booking type, but confirmation depends on completing payment as agreed."
   },
   {
-    q: "هل يمكن الدفع بعملة غير الدرهم لحجز يخت إيليت؟",
-    a: "غالبًا يتم الدفع بالدرهم. بعض بوابات الدفع قد تقبل عملات أخرى حسب البنك المصدر."
+    q: "Can I pay in a currency other than AED?",
+    a: "Payments are typically in AED. Some payment gateways may support other currencies depending on your bank."
   },
   {
-    q: "هل يوجد خصومات على حجز يخت إيليت؟",
-    a: "قد تتوفر عروض موسمية أو باقات ساعات—اسأل فريق الحجز عن أفضل سعر لرحلتك على يخت إيليت."
+    q: "Do you offer discounts?",
+    a: "Seasonal offers or hour packages may be available. Ask the booking team for the best deal for your trip."
   },
   {
-    q: "هل يمكن الحصول على عرض سعر رسمي قبل حجز يخت إيليت؟",
-    a: "نعم، أرسل عدد الأشخاص ومدة الرحلة والتاريخ وسنرسل عرضًا رسميًا لحجز يخت إيليت."
-
+    q: "Can I get an official quotation before booking?",
+    a: "Yes. Send guest count, duration, and date, and we’ll share an official quotation."
   },
 
-  // 21-30: السعة والأسطول
   {
-    q: "كم عدد الأشخاص المسموح بهم على يخت إيليت؟",
-    a: "السعة تختلف حسب اليخت، ويمكن أن تكون من 10 إلى 200 شخص."
+    q: "How many guests are allowed on board?",
+    a: "Capacity depends on the yacht and can range from 10 up to 200 guests."
   },
   {
-    q: "ما أحجام اليخوت لدى يخت إيليت؟",
-    a: "أسطولنا يبدأ من 36 قدم ويصل حتى 300 قدم."
+    q: "What yacht sizes do you offer?",
+    a: "Our fleet starts from 36 ft and goes up to 300 ft."
   },
   {
-    q: "كيف أختار حجم يخت إيليت المناسب؟",
-    a: "أخبرنا بعدد الضيوف والغرض (حفلة/عائلة/شركات) وسنقترح أفضل يخت إيليت من حيث المساحة والخدمات."
+    q: "How do I choose the right yacht size?",
+    a: "Tell us your guest count and occasion (family, party, corporate) and we’ll recommend the best option for space and comfort."
   },
   {
-    q: "هل يختلف سعر يخت إيليت حسب الحجم؟",
-    a: "نعم، السعر يعتمد على حجم يخت إيليت، مدة الرحلة، وقت الإبحار، والخدمات الإضافية."
+    q: "Does the price change by yacht size?",
+    a: "Yes. Pricing depends on yacht size, trip duration, sailing time, and any add-ons."
   },
   {
-    q: "هل يوجد يخت إيليت مناسب للعائلات؟",
-    a: "نعم، تتوفر خيارات عائلية في يخت إيليت بمناطق جلوس مريحة ومساحة للأطفال."
+    q: "Do you have family-friendly yachts?",
+    a: "Yes. We offer family-friendly options with comfortable seating and suitable space for kids."
   },
   {
-    q: "هل يوجد يخت إيليت مناسب للحفلات الكبيرة؟",
-    a: "نعم، لدينا خيارات كبيرة ضمن يخت إيليت تناسب المناسبات حتى 200 ضيف حسب اليخت."
+    q: "Do you have yachts for large parties?",
+    a: "Yes. We have larger options suitable for up to 200 guests depending on the yacht."
   },
   {
-    q: "هل يوجد يخت إيليت VIP؟",
-    a: "نعم، تتوفر فئات VIP ضمن يخت إيليت بتصميم فاخر وخدمات مخصصة."
+    q: "Do you offer VIP yachts?",
+    a: "Yes. VIP categories are available with premium interiors and personalized services."
   },
   {
-    q: "هل يمكن دمج أكثر من يخت إيليت لنفس الفعالية؟",
-    a: "نعم حسب التوفر، يمكن توفير أكثر من يخت إيليت وتنسيق الانطلاق والمسار."
+    q: "Can I combine multiple yachts for one event?",
+    a: "Yes, subject to availability. We can arrange multiple yachts and coordinate departure and route."
   },
   {
-    q: "هل أستطيع معاينة يخت إيليت قبل الحجز؟",
-    a: "في بعض الحالات يمكن ترتيب معاينة حسب التوفر والوقت—تواصل معنا لتنسيق ذلك."
+    q: "Can I view the yacht before booking?",
+    a: "In some cases, a viewing can be arranged depending on availability and timing."
   },
   {
-    q: "هل صور يخت إيليت على الموقع مطابقة للواقع؟",
-    a: "نعم، صور يخت إيليت تمثل اليخوت الفعلية، وقد تختلف تفاصيل بسيطة حسب التحديثات والصيانة."
-
+    q: "Are the website yacht photos accurate?",
+    a: "Yes. Photos represent the actual yachts, with minor differences possible due to upgrades or maintenance."
   },
 
-  // 31-40: الانطلاق والمسارات
   {
-    q: "من أين يبدأ الانطلاق لرحلة يخت إيليت؟",
-    a: "عادةً الانطلاق يكون من دبي مارينا أو مواقع معتمدة حسب يخت إيليت المحجوز."
+    q: "Where does the trip depart from?",
+    a: "Most trips depart from Dubai Marina or approved locations depending on the booked yacht."
   },
   {
-    q: "هل يمكن اختيار مسار رحلة يخت إيليت؟",
-    a: "نعم، يمكن تخصيص مسار يخت إيليت حسب الوقت والطقس وتعليمات القبطان."
+    q: "Can I choose the cruising route?",
+    a: "Yes. Routes can be customized based on duration, weather, and captain guidance."
   },
   {
-    q: "هل يمكن مشاهدة عين دبي أو برج العرب ضمن مسار يخت إيليت؟",
-    a: "نعم، يمكن إدراج معالم شهيرة ضمن مسار يخت إيليت حسب مدة الرحلة."
+    q: "Can we include Ain Dubai or Burj Al Arab in the route?",
+    a: "Yes. Iconic landmarks can be included depending on trip duration."
   },
   {
-    q: "كم مدة الوصول للمعالم خلال رحلة يخت إيليت؟",
-    a: "يعتمد على نقطة الانطلاق والازدحام البحري، والقبطان يحدد أفضل توقيت."
+    q: "How long does it take to reach landmarks?",
+    a: "It depends on the departure point and marine traffic. The captain will plan the best timing."
   },
   {
-    q: "هل يمكن التوقف للسباحة خلال رحلة يخت إيليت؟",
-    a: "نعم، السباحة متاحة في المناطق المسموح بها وبحسب تعليمات القبطان على يخت إيليت."
+    q: "Can we stop for swimming?",
+    a: "Yes, in permitted areas and based on captain instructions."
   },
   {
-    q: "هل يمكن الصعود إلى يخت إيليت قبل وقت الحجز؟",
-    a: "يُسمح عادةً قبل وقت الإبحار بقليل لتنظيم الدخول، ويختلف حسب جدول يخت إيليت."
+    q: "Can we board before the booking time?",
+    a: "Typically you can board shortly before departure for smooth check-in, depending on the yacht schedule."
   },
   {
-    q: "كم المدة التي يجب أن أصل فيها قبل رحلة يخت إيليت؟",
-    a: "ننصح بالوصول قبل 15–30 دقيقة لتسجيل الدخول بسلاسة."
+    q: "How early should I arrive?",
+    a: "We recommend arriving 15–30 minutes before departure."
   },
   {
-    q: "هل يوجد موقف سيارات قرب موقع يخت إيليت؟",
-    a: "في أغلب مواقع الانطلاق يوجد مواقف مدفوعة/متاحة، ويمكن تزويدك بالتفاصيل قبل الرحلة."
+    q: "Is parking available near the departure point?",
+    a: "Most departure locations have paid/available parking. We’ll share details before the trip."
   },
   {
-    q: "هل يمكن تغيير موقع الانطلاق في يخت إيليت؟",
-    a: "حسب اليخت والتصاريح—يمكن مناقشة ذلك عند الحجز."
+    q: "Can I change the departure location?",
+    a: "Depending on yacht permissions and permits, it can be discussed during booking."
   },
   {
-    q: "هل يمكن تصوير لقطات احترافية على يخت إيليت؟",
-    a: "نعم، التصوير مسموح ويمكن ترتيب مصور محترف ضمن باقات يخت إيليت."
-
+    q: "Can we do professional photography on board?",
+    a: "Yes. Professional shoots are allowed, and a photographer can be arranged as an add-on."
   },
 
-  // 41-50: التموين والشيف والمشروبات
   {
-    q: "هل التموين (Catering) متوفر على يخت إيليت؟",
-    a: "نعم، التموين متوفر على يخت إيليت مع قوائم متنوعة حسب الطلب."
+    q: "Do you offer catering on board?",
+    a: "Yes. Catering is available with multiple menu options based on request."
   },
   {
-    q: "هل يمكن اختيار قائمة طعام خاصة لرحلة يخت إيليت؟",
-    a: "نعم، يمكن تخصيص قائمة التموين وفق ذوقك وميزانيتك (بحري/عربي/عالمي/سناكات)."
+    q: "Can I request a custom menu?",
+    a: "Yes. We can tailor catering to your taste and budget (seafood, Arabic, international, snacks)."
   },
   {
-    q: "هل يتوفر شيف على متن يخت إيليت؟",
-    a: "نعم، يتوفر شيف على متن يخت إيليت عند الطلب مقابل رسوم إضافية."
+    q: "Can I have a chef on board?",
+    a: "Yes. A private chef can be arranged as an add-on service."
   },
   {
-    q: "هل يمكن إحضار طعامي الخاص إلى يخت إيليت؟",
-    a: "نعم، يمكنك إحضار طعامك ومشروباتك الخاصة دون رسوم إضافية في أغلب الحالات."
+    q: "Can I bring my own food and drinks?",
+    a: "In most cases, yes. You can bring your own food and beverages without extra fees."
   },
   {
-    q: "هل يوجد ثلاجة ومكان لحفظ الطعام على يخت إيليت؟",
-    a: "نعم، يخت إيليت مجهز بثلاجات ومساحات تخزين حسب حجم اليخت."
+    q: "Is there a fridge for food storage?",
+    a: "Yes. Yachts have fridges and storage depending on yacht size."
   },
   {
-    q: "هل توجد أدوات تقديم وأطباق على يخت إيليت؟",
-    a: "نعم، تتوفر أدوات أساسية، وإذا كان لديك طلبات خاصة يمكن توفيرها ضمن باقات يخت إيليت."
+    q: "Do you provide plates and serving tools?",
+    a: "Yes, basic serving essentials are available. Special requests can be arranged as part of packages."
   },
   {
-    q: "هل يمكن ترتيب كيك عيد ميلاد على يخت إيليت؟",
-    a: "نعم، يمكن ترتيب كيك وبوفيه خاص ضمن خيارات التموين لرحلتك على يخت إيليت."
+    q: "Can you arrange a birthday cake on board?",
+    a: "Yes. We can arrange a cake and a special buffet through catering options."
   },
   {
-    q: "هل تتوفر خيارات نباتية/حلال ضمن تموين يخت إيليت؟",
-    a: "نعم، يمكن توفير خيارات نباتية وحلال وغيرها عند الطلب."
+    q: "Do you offer vegetarian/halal options?",
+    a: "Yes. Vegetarian, halal, and other dietary options can be provided on request."
   },
   {
-    q: "هل يمكن إضافة ضيافة VIP على يخت إيليت؟",
-    a: "نعم، نوفر ضيافة VIP مع تقديم راقٍ وتجهيزات فاخرة حسب الطلب."
+    q: "Can I add VIP hospitality service?",
+    a: "Yes. VIP hospitality and premium setups are available on request."
   },
   {
-    q: "هل توجد رسوم إضافية لخدمة التموين في يخت إيليت؟",
-    a: "نعم، التموين خدمة إضافية حسب القائمة والعدد ويتم تسعيرها بوضوح قبل التأكيد."
-
+    q: "Is catering an additional cost?",
+    a: "Yes. Catering is priced based on the menu and guest count and is quoted clearly before confirmation."
   },
 
-  // 51-60: الديكور والنقل والسياسات والسلامة
   {
-    q: "هل توجد خدمة ديكور فخم على يخت إيليت؟",
-    a: "نعم، نوفر ديكور بمستوى فخم جدًا (Extreme Luxury) حسب الثيم المطلوب."
+    q: "Do you provide luxury decoration setups?",
+    a: "Yes. We offer high-end decoration themes (extreme luxury) based on your request."
   },
   {
-    q: "هل الديكور مشمول بسعر يخت إيليت؟",
-    a: "لا، الديكور خدمة إضافية وتوجد رسوم إضافية حسب مستوى التجهيز."
+    q: "Is decoration included in the yacht price?",
+    a: "No. Decoration is an add-on service with separate pricing depending on the setup level."
   },
   {
-    q: "هل يمكن تنفيذ ديكور خطوبة/زواج على يخت إيليت؟",
-    a: "نعم، يمكن تنفيذ ديكور خطوبة/زواج فاخر جدًا مع تفاصيل مخصصة على يخت إيليت."
+    q: "Can you arrange engagement/proposal decoration?",
+    a: "Yes. We can arrange premium engagement/proposal setups with customized details."
   },
   {
-    q: "هل توفرون نقل فخم للضيوف إلى يخت إيليت؟",
-    a: "نعم، النقل الفخم متاح عند الطلب (سيارات VIP/ليموزين) مقابل رسوم إضافية."
+    q: "Do you provide VIP guest transportation?",
+    a: "Yes. VIP transport (luxury cars/limousine) can be arranged as an add-on."
   },
   {
-    q: "هل الحيوانات الأليفة مسموح بها على يخت إيليت؟",
-    a: "لا، الحيوانات الأليفة غير مسموح بها على يخت إيليت."
+    q: "Are pets allowed on board?",
+    a: "No, pets are not allowed."
   },
   {
-    q: "هل يخت إيليت آمن للأطفال؟",
-    a: "نعم، يخت إيليت مجهز بمعدات سلامة، ويجب إشراف الأهل على الأطفال طوال الرحلة."
+    q: "Is it safe for children?",
+    a: "Yes. Safety equipment is available, and parents/guardians must supervise children at all times."
   },
   {
-    q: "هل الرحلة تشمل قبطان وطاقم في يخت إيليت؟",
-    a: "نعم، جميع رحلات يخت إيليت تشمل قبطان محترف وطاقم مدرب."
+    q: "Does the trip include a captain and crew?",
+    a: "Yes. Every booking includes a professional captain and trained crew."
   },
   {
-    q: "ماذا يحدث إذا كان الطقس غير مناسب لرحلة يخت إيليت؟",
-    a: "في حالات الطقس السيئ، يمكن إعادة الجدولة أو تطبيق سياسة الاسترجاع حسب الحالة والتعليمات الرسمية."
+    q: "What happens if weather is not suitable?",
+    a: "In case of unsafe weather, we can reschedule or apply the refund policy depending on official guidance and the situation."
   },
   {
-    q: "هل يمكن تشغيل الموسيقى على يخت إيليت؟",
-    a: "نعم، يخت إيليت مجهز بنظام صوت ويمكن تشغيل موسيقاك الخاصة مع مراعاة الأنظمة."
+    q: "Can we play music on board?",
+    a: "Yes. Sound systems are available, and you can play your own music while respecting marina regulations."
   },
   {
-    q: "هل يمكن تنظيم فعالية شركات على يخت إيليت؟",
-    a: "نعم، يخت إيليت مناسب لفعاليات الشركات مع تجهيزات ضيافة ومساحات جلوس وعروض مخصصة."
-
+    q: "Can you organize corporate events on a yacht?",
+    a: "Yes. Corporate events are supported with hospitality setups, seating areas, and custom offers."
   },
 
-  // 61-70: إضافات قوية لزيادة التحويل (Conversion)
   {
-    q: "هل توجد باقات خاصة لعيد الميلاد على يخت إيليت؟",
-    a: "نعم، لدينا باقات عيد ميلاد على يخت إيليت تشمل ديكور وتموين وخيارات تصوير حسب الطلب."
+    q: "Do you offer birthday packages?",
+    a: "Yes. Birthday packages can include decoration, catering, and photography options."
   },
   {
-    q: "هل يوجد خيار DJ على يخت إيليت؟",
-    a: "نعم، يمكن توفير DJ محترف ضمن إضافات يخت إيليت مقابل رسوم إضافية."
+    q: "Can I add a DJ?",
+    a: "Yes. A professional DJ can be arranged as an add-on."
   },
   {
-    q: "هل توجد غرف نوم وصالة مكيفة على يخت إيليت؟",
-    a: "نعم، يخت إيليت يحتوي على صالة مكيفة وغرف حسب حجم اليخت."
+    q: "Do yachts have bedrooms and air-conditioned lounges?",
+    a: "Yes. Most yachts include an A/C lounge and cabins depending on yacht size."
   },
   {
-    q: "هل يمكن إضافة مفاجأة رومانسية على يخت إيليت؟",
-    a: "نعم، يمكن ترتيب مفاجأة رومانسية مع ديكور وإضاءة وتجهيزات راقية على يخت إيليت."
+    q: "Can you arrange a romantic surprise?",
+    a: "Yes. We can arrange a romantic setup with décor, lighting, and premium details."
   },
   {
-    q: "هل توجد إنترنت (Wi-Fi) على يخت إيليت؟",
-    a: "بعض خيارات يخت إيليت توفر Wi-Fi. أخبرنا قبل الحجز لتأكيد توفره."
+    q: "Is Wi-Fi available on board?",
+    a: "Some yachts have Wi-Fi. Tell us in advance so we can confirm availability."
   },
   {
-    q: "هل يمكن التدخين على يخت إيليت؟",
-    a: "التدخين مسموح فقط في الأماكن المخصصة حسب تعليمات طاقم يخت إيليت."
+    q: "Is smoking allowed?",
+    a: "Smoking is only allowed in designated areas based on crew instructions."
   },
   {
-    q: "هل يمكن إحضار معدات تصوير أو درون لرحلة يخت إيليت؟",
-    a: "التصوير مسموح، أما الدرون فقد يحتاج موافقات حسب الموقع. اسألنا قبل الرحلة."
+    q: "Can I bring filming gear or a drone?",
+    a: "Filming is allowed. Drones may require approvals depending on location—please check with us in advance."
   },
   {
-    q: "هل يوجد وقت أفضل لحجز يخت إيليت؟",
-    a: "الغروب والمساء الأكثر طلبًا. للحجز بسعر أفضل، اسأل عن أوقات النهار وعروض الساعات على يخت إيليت."
+    q: "What is the best time to book?",
+    a: "Sunset and evening slots are the most popular. For better pricing, ask about daytime slots and hour deals."
   },
   {
-    q: "هل يمكن استرداد مبلغ حجز يخت إيليت؟",
-    a: "الاسترداد يخضع لسياسة الإلغاء وتوقيت الإلغاء. تواصل معنا وسنوضح لك الحالة بدقة."
+    q: "Can I get a refund?",
+    a: "Refunds depend on the cancellation policy and the timing of your cancellation. Contact us and we’ll clarify your exact case."
   },
   {
-    q: "كيف أتأكد أنني اخترت أفضل يخت إيليت لعدد ضيوفي؟",
-    a: "أرسل عدد الضيوف + المناسبة + وقت الرحلة، وسنقترح أفضل يخت إيليت من حيث السعة والراحة والتجربة."
+    q: "How do I ensure I pick the best yacht for my guests?",
+    a: "Send guest count + occasion + preferred time, and we’ll recommend the best option for capacity, comfort, and overall experience."
   }
 ];
 
 function normalizeText(s) {
-  return (s || "")
-    .toString()
-    .trim()
-    .replace(/\s+/g, " ");
+  return (s || "").toString().trim().replace(/\s+/g, " ");
 }
 
 export default function FAQPAGE() {
@@ -324,96 +308,92 @@ export default function FAQPAGE() {
 
   return (
     <section className="bg-white">
-    <div className="max-w-5xl mx-auto px-6 py-14 bg-white" dir="rtl">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <p className="text-[11px] tracking-[0.35em] text-slate-500">
-          دعم الحجز • التوفر الفوري • الدفع الآمن
-        </p>
-        <div className="h-px my-3 mx-auto w-72 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-        <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-          الأسئلة الشائعة — يخت إيليت
-        </h2>
-        <p className="mt-4 text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          أجوبة واضحة ومباشرة لكل ما يخص حجز يخت إيليت في دبي: الحد الأدنى ساعتين،
-          لا يُسمح بالحيوانات، الديكور الفاخر برسوم إضافية، الشيف والتموين (Catering)
-          متوفران، والنقل الفخم عند الطلب.
-        </p>
-      </div>
+      <div className="max-w-5xl mx-auto px-6 py-14 bg-white" dir="ltr" lang="en">
+        <div className="text-center mb-10">
+          <p className="text-[10px] sm:text-[11px] tracking-[0.30em] text-slate-500 uppercase">
+            Booking Support • Real-Time Availability • Secure Payments
+          </p>
+          <div className="h-px my-3 mx-auto w-72 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <h2 className="text-[22px] sm:text-[28px] font-semibold text-slate-900 tracking-tight">
+            Frequently Asked Questions — Elite Yacht Dubai
+          </h2>
+          <p className="mt-4 text-[13px] sm:text-[14px] text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Clear answers about booking in Dubai: minimum 2 hours, pets not allowed, luxury decoration is an add-on,
+            chef and catering are available, and VIP transportation can be arranged on request.
+          </p>
+        </div>
 
-      {/* Search */}
-      <div className="mb-8">
-        <div className="max-w-xl mx-auto">
-          <div className="relative">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="ابحث داخل الأسئلة… مثال: الدفع، الديكور، السعة، التموين"
-              className="
-                w-full rounded-2xl border border-slate-200 bg-white
-                px-5 py-3 text-right text-slate-900
-                shadow-sm outline-none
-                focus:border-slate-300 focus:shadow
-              "
-            />
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">
-              {filtered.length}/{FAQS.length}
+        <div className="mb-8">
+          <div className="max-w-xl mx-auto">
+            <div className="relative">
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search FAQs… e.g. payment, decoration, capacity, catering"
+                className="
+                  w-full rounded-2xl border border-slate-200 bg-white
+                  px-5 py-3 text-left text-slate-900 text-[13px] sm:text-[14px]
+                  shadow-sm outline-none
+                  focus:border-slate-300 focus:shadow
+                "
+              />
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[12px]">
+                {filtered.length}/{FAQS.length}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Accordion */}
-      <div className="space-y-4">
-        {filtered.map((item, i) => {
-          const idx = FAQS.indexOf(item); // keep stable open by original index
-          const isOpen = open === idx;
+        <div className="space-y-4">
+          {filtered.map((item) => {
+            const idx = FAQS.indexOf(item);
+            const isOpen = open === idx;
 
-          return (
-            <div
-              key={`${idx}-${item.q}`}
-              className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm"
-            >
-              <button
-                onClick={() => setOpen(isOpen ? null : idx)}
-                className="
-                  w-full flex items-center justify-between gap-4
-                  px-5 py-4 text-right
-                  hover:bg-slate-50 transition
-                "
-                aria-expanded={isOpen}
+            return (
+              <div
+                key={`${idx}-${item.q}`}
+                className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm"
               >
-                <span className="font-semibold text-slate-900 leading-snug">
-                  {item.q}
-                </span>
-                <span
+                <button
+                  onClick={() => setOpen(isOpen ? null : idx)}
                   className="
-                    flex-shrink-0 h-9 w-9 rounded-full
-                    border border-slate-200
-                    grid place-items-center
-                    text-slate-700
-                    bg-white
+                    w-full flex items-center justify-between gap-4
+                    px-5 py-4 text-left
+                    hover:bg-slate-50 transition
                   "
+                  aria-expanded={isOpen}
                 >
-                  {isOpen ? "−" : "+"}
-                </span>
-              </button>
+                  <span className="font-semibold text-slate-900 leading-snug text-[13px] sm:text-[14px]">
+                    {item.q}
+                  </span>
+                  <span
+                    className="
+                      flex-shrink-0 h-9 w-9 rounded-full
+                      border border-slate-200
+                      grid place-items-center
+                      text-slate-700
+                      bg-white
+                      text-[16px]
+                    "
+                  >
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
 
-              {isOpen && (
-                <div className="px-5 pb-5 text-slate-700 leading-relaxed">
-                  {item.a}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                {isOpen && (
+                  <div className="px-5 pb-5 text-slate-700 leading-relaxed text-[13px] sm:text-[14px]">
+                    {item.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
 
-      {/* Footer note */}
-      <div className="mt-10 text-center text-sm text-slate-500">
-        لم تجد إجابتك؟ تواصل معنا الآن وسنساعدك فورًا في اختيار أفضل يخت إيليت لرحلتك.
+        <div className="mt-10 text-center text-[13px] sm:text-[14px] text-slate-500">
+          Didn’t find your answer? Contact us now and we’ll help you choose the best yacht for your trip.
+        </div>
       </div>
-    </div>
     </section>
   );
 }

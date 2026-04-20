@@ -1,4 +1,3 @@
-// src/components/Seo.jsx
 import { useEffect } from "react";
 
 function upsertMeta(nameOrPropKey, keyValue, content) {
@@ -7,7 +6,6 @@ function upsertMeta(nameOrPropKey, keyValue, content) {
       ? `meta[name="${keyValue}"]`
       : `meta[property="${keyValue}"]`;
 
-  // If empty -> remove (prevents old tags staying)
   if (!content) {
     const existing = document.head.querySelector(selector);
     if (existing) existing.remove();
@@ -45,7 +43,6 @@ export default function Seo({
   keywords,
   canonical,
 
-  // OG
   ogTitle,
   ogDescription,
   ogImage,
@@ -53,13 +50,10 @@ export default function Seo({
   ogType = "website",
   ogLocale = "ar_AE",
 
-  // Twitter
   twitterCard = "summary_large_image",
 
-  // Robots
   robots = "index, follow, max-image-preview:large",
 
-  // Optional: set html lang/dir
   lang,
   dir,
 }) {

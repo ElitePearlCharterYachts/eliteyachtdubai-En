@@ -2,56 +2,56 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 const REVIEWS = [
   {
-    name: "عائشة م.",
-    location: "حفلة على اليخت",
+    name: "Aisha M.",
+    location: "Yacht Party",
     rating: 5,
     text:
-      "أفضل تجربة تأجير يخوت فاخرة في دبي. اليخت كان نظيفًا جدًا، الطاقم محترف، والحجز كان سلسًا. مثالي لرحلة يخت خاصة في دبي مارينا.",
+      "Best luxury yacht rental experience in Dubai. The yacht was extremely clean, the crew was professional, and booking was smooth. Perfect for a private yacht trip in Dubai Marina.",
   },
   {
-    name: "عمر ر.",
-    location: "حفلة كشف جنس المولود",
+    name: "Omar R.",
+    location: "Gender Reveal Celebration",
     rating: 5,
     text:
-      "تأجير يخت في دبي بجودة عالية وخدمة مميزة. نظام صوت ممتاز، جلسات مريحة، والكابتن ودود جدًا. أنصح به لتأجير يخت في دبي مارينا.",
+      "High-quality yacht rental in Dubai with great service. Excellent sound system, comfortable seating, and a very friendly captain. Highly recommended for Dubai Marina yacht rental.",
   },
   {
-    name: "سارة ك.",
-    location: "حفلة Marry Me على اليخت",
+    name: "Sara K.",
+    location: "Marry Me Yacht Setup",
     rating: 5,
     text:
-      "حجزنا يخت خاص في دبي لعيد ميلاد وكانت التجربة VIP. يخت نظيف، طاقم ملتزم بالمواعيد، وإطلالة رائعة. من أفضل شركات تأجير اليخوت في دبي.",
+      "We booked a private yacht in Dubai for a birthday and it felt truly VIP. Clean yacht, punctual crew, and an amazing view. One of the best yacht charter companies in Dubai.",
   },
   {
-    name: "دانيال هـ.",
-    location: "طلب زواج على اليخت",
+    name: "Daniel H.",
+    location: "Yacht Proposal",
     rating: 5,
     text:
-      "تأجير يخوت فاخرة في دبي بالشكل الصحيح. رد سريع على واتساب، أسعار واضحة، ويخت راقٍ. عملية حجز يخت في دبي كانت سهلة جدًا.",
+      "Luxury yacht rental in Dubai done right. Fast WhatsApp replies, clear pricing, and a classy yacht. Booking a yacht in Dubai was super easy.",
   },
   {
-    name: "فاطمة أ.",
-    location: "حفلة زفاف على اليخت",
+    name: "Fatima A.",
+    location: "Yacht Wedding Celebration",
     rating: 5,
     text:
-      "تجربة تأجير يخت دبي ممتازة مع ضيافة رائعة. اليخت حديث ونظيف جدًا. مثالي لرحلة غروب وتجربة فاخرة في دبي مارينا.",
+      "Excellent Dubai yacht rental experience with great hospitality. The yacht was modern and very clean. Ideal for a sunset cruise and a premium Dubai Marina experience.",
   },
   {
-    name: "محمد س.",
-    location: "فعالية شركات على اليخت",
+    name: "Mohammed S.",
+    location: "Corporate Yacht Event",
     rating: 5,
     text:
-      "طاقم احترافي وتجربة تأجير يخوت فاخرة في دبي. مناسبة جدًا لضيوف الشركات. إذا تبحث عن يخت في دبي، هذه خدمة بريميوم فعلًا.",
+      "Professional crew and a premium luxury yacht rental experience in Dubai. Perfect for corporate guests. If you're looking for a yacht in Dubai, this is genuinely premium service.",
   },
 ];
 
 function Stars({ value = 5 }) {
   return (
-    <div className="flex items-center gap-1" aria-label={`${value} من 5`}>
+    <div className="flex items-center gap-1" aria-label={`${value} out of 5`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <i
           key={i}
-          className={`fa-solid fa-star text-[12px] ${
+          className={`fa-solid fa-star text-[11px] sm:text-[12px] ${
             i < value ? "text-black" : "text-black/20"
           }`}
         />
@@ -107,17 +107,16 @@ export default function ReviewsSlider() {
 
   return (
     <section
-      lang="ar"
-      aria-label="تقييمات إيليت يخوت دبي - تأجير يخوت فاخرة في دبي مارينا"
+      lang="en"
+      dir="ltr"
+      aria-label="Elite Yacht Dubai Reviews - Luxury Yacht Rental in Dubai Marina"
       className="relative w-full bg-white py-20 overflow-hidden"
     >
-      {/*  SEO (clean, light) */}
       <p className="sr-only">
-        تقييمات موثّقة لتجارب تأجير يخوت فاخرة في دبي مع إيليت يخوت. حجز سريع عبر واتساب،
-        خدمة VIP، طاقم محترف، ويخوت مناسبة للرحلات الخاصة والحفلات وفعاليات الشركات في دبي مارينا.
+        Verified reviews for luxury yacht rentals in Dubai with Elite Yacht Dubai. Fast booking via WhatsApp,
+        VIP service, professional crew, and yachts ideal for private trips, parties, and corporate events in Dubai Marina.
       </p>
 
-      {/* light premium texture */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.06),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_35%,rgba(0,0,0,0.035),transparent_60%)]" />
@@ -125,32 +124,30 @@ export default function ReviewsSlider() {
       </div>
 
       <div className="relative max-w-[1500px] mx-auto px-6 lg:px-10">
-        {/* Title */}
         <div className="text-center mb-14 max-w-4xl mx-auto">
-          <p className="text-[11px] tracking-[0.35em] text-black/55 uppercase">
-            آراء العملاء • Dubai Marina • VIP
+          <p className="text-[10px] sm:text-[11px] tracking-[0.30em] text-black/55 uppercase">
+            Guest Reviews • Dubai Marina • VIP Service
           </p>
 
-          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[0.18em] text-black">
-            ماذا يقول ضيوف <span className="font-bold">إيليت يخوت</span>؟
+          <h2 className="mt-3 text-[22px] sm:text-[28px] md:text-[34px] font-semibold tracking-tight text-black">
+            What do guests say about <span className="font-bold">Elite Yachts</span>?
           </h2>
 
-          <p className="mt-5 text-black/70 max-w-3xl mx-auto leading-relaxed text-[15px] sm:text-[16px]">
-            تقييمات حقيقية من ضيوف اختاروا{" "}
-            <span className="text-black font-semibold">تأجير يخت في دبي</span>{" "}
-            مع{" "}
-            <span className="text-black font-semibold">إيليت يخوت دبي</span>{" "}
-            للرحلات الخاصة، الحفلات، وفعاليات الشركات — خدمة VIP، طاقم محترف، وتجربة حجز سريعة.
+          <p className="mt-5 text-black/70 max-w-3xl mx-auto leading-relaxed text-[13px] sm:text-[14px]">
+            Real feedback from guests who chose{" "}
+            <span className="text-black font-semibold">yacht rental in Dubai</span>{" "}
+            with{" "}
+            <span className="text-black font-semibold">Elite Yacht Dubai</span>{" "}
+            for private trips, parties, and corporate events — VIP service, professional crew, and fast booking.
           </p>
 
-          {/* SEO chips (light premium) */}
-          <div className="mt-7 flex flex-wrap justify-center gap-2 text-[12px]">
+          <div className="mt-7 flex flex-wrap justify-center gap-2 text-[11px] sm:text-[12px]">
             {[
-              "تأجير يخت دبي مارينا",
-              "حجز يخت دبي واتساب",
-              "يخوت فاخرة في دبي",
-              "يخت خاص في دبي",
-              "رحلات VIP دبي",
+              "Dubai Marina Yacht Rental",
+              "Book via WhatsApp",
+              "Luxury Yachts in Dubai",
+              "Private Yacht in Dubai",
+              "VIP Yacht Trips",
               "Luxury Yacht Rental Dubai",
             ].map((t) => (
               <span
@@ -171,17 +168,15 @@ export default function ReviewsSlider() {
           </div>
         </div>
 
-        {/* Slider */}
         <div
           className="relative"
           onMouseEnter={() => (isHoverRef.current = true)}
           onMouseLeave={() => (isHoverRef.current = false)}
         >
-          {/* Prev */}
           <button
             type="button"
             onClick={prev}
-            aria-label="السابق"
+            aria-label="Previous"
             className="
               absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10
               h-11 w-11 rounded-full
@@ -199,11 +194,10 @@ export default function ReviewsSlider() {
             <i className="fa-solid fa-chevron-left text-[12px]" />
           </button>
 
-          {/* Next */}
           <button
             type="button"
             onClick={next}
-            aria-label="التالي"
+            aria-label="Next"
             className="
               absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10
               h-11 w-11 rounded-full
@@ -221,7 +215,6 @@ export default function ReviewsSlider() {
             <i className="fa-solid fa-chevron-right text-[12px]" />
           </button>
 
-          {/* Track */}
           <div className="overflow-hidden">
             <div className="-mx-3">
               <div
@@ -241,13 +234,12 @@ export default function ReviewsSlider() {
             </div>
           </div>
 
-          {/* Dots */}
           <div className="mt-10 flex items-center justify-center gap-3">
             {dots.map((d) => (
               <button
                 key={d}
                 type="button"
-                aria-label={`انتقل إلى التقييم رقم ${d + 1}`}
+                aria-label={`Go to review ${d + 1}`}
                 onClick={() => setIndex(d)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   d === index
@@ -278,44 +270,41 @@ function ReviewCard({ review }) {
         hover:shadow-[0_18px_55px_rgba(0,0,0,0.12)]
       "
     >
-      {/* Top row */}
       <div className="flex items-start justify-between gap-4">
         <Stars value={review.rating} />
 
-        <div className="min-w-0 text-right">
-          <div className="flex items-center justify-end gap-2">
-            <p className="text-sm tracking-wider text-black/80 truncate">
+        <div className="min-w-0 text-left">
+          <div className="flex items-center justify-start gap-2">
+            <p className="text-[13px] sm:text-[14px] tracking-wide text-black/80 truncate">
               {review.name}
             </p>
 
-            {/* keep BLUE tick same */}
-            <span className="inline-flex items-center gap-1 text-[11px] text-black/50">
+            <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-black/50">
               <i className="fa-solid fa-circle-check text-[#0AABF7]/90" />
               Verified
             </span>
           </div>
 
-          <p className="text-[11px] tracking-[0.28em] uppercase text-black/40 mt-1">
+          <p className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-black/40 mt-1">
             {review.location}
           </p>
         </div>
       </div>
 
-      {/* Divider (mono) */}
       <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-black/20 to-transparent" />
 
-      {/* Review text */}
-      <p className="mt-4 text-black/65 leading-relaxed text-sm text-right">
+      <p className="mt-4 text-black/65 leading-relaxed text-[13px] sm:text-[14px] text-left">
         “{review.text}”
       </p>
 
-      {/* bottom label */}
-      <div className="mt-6 flex items-center justify-between text-[11px] tracking-[0.28em] uppercase text-black/45">
+      <div className="mt-6 flex items-center justify-between text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-black/45">
         <span className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-black/50" />
           Dubai
         </span>
-        <span className="text-black/80 text-[15px]">إيليت يخوت</span>
+        <span className="text-black/80 text-[13px] sm:text-[14px] tracking-tight">
+          Elite Yachts
+        </span>
       </div>
     </div>
   );

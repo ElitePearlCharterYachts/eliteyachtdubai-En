@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     host: true,
     strictPort: true,
-    // 👇 THIS is the key line
     allowedHosts: true,
   },
 });

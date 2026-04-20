@@ -22,22 +22,22 @@ function TMText({ children }) {
 
 export default function AboutContainer() {
   const WHATSAPP =
-    "https://wa.me/971569006603?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%8A%D8%AE%D8%AA%20%D9%81%D9%8A%20%D8%AF%D8%A8%D9%8A";
+    "https://wa.me/971569006603?text=I%20want%20to%20book%20a%20yacht%20in%20Dubai";
   const PHONE = "tel:+971569006603";
 
   const bullets = [
-    "تأجير يخوت فاخرة في دبي مارينا بحجز مباشر وتأكيد سريع",
-    "رحلات خاصة للعائلات والأصدقاء بخصوصية تامة وخدمة راقية",
-    "خيارات مناسبات وحفلات وفعاليات شركات وتجارب VIP",
-    "طاقم محترف وتنظيم دقيق ومسارات مميزة في دبي",
+    "Luxury yacht rental in Dubai Marina with direct booking and fast confirmation",
+    "Private cruises for families and friends with complete privacy and premium service",
+    "Packages for occasions, parties, corporate events, and VIP experiences",
+    "Professional crew, precise coordination, and iconic routes across Dubai",
   ].map(applyTM);
 
   return (
     <section
-      lang="ar"
-      dir="rtl"
+      lang="en"
+      dir="ltr"
       className="relative w-full bg-white text-black py-16 sm:py-20 overflow-hidden"
-      aria-label="عن إيليت يخوت دبي"
+      aria-label="About Elite Yacht Dubai"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.04),transparent_55%)]" />
@@ -48,37 +48,36 @@ export default function AboutContainer() {
       <div className="relative max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="order-2 lg:order-1">
           <div className="flex items-center gap-4 mb-5 justify-start">
-            <div className="h-px w-14 bg-gradient-to-l from-black/45 to-transparent" />
-            <span className="text-[12px] sm:text-[13px] tracking-wide text-black/80">
-              دبي مارينا • خصوصية تامة • خدمة VIP
+            <div className="h-px w-14 bg-gradient-to-r from-black/45 to-transparent" />
+            <span className="text-[10px] sm:text-[11px] tracking-[0.18em] text-black/75 uppercase">
+              Dubai Marina • Full Privacy • VIP Service
             </span>
           </div>
 
-          <h2 className="text-[28px] sm:text-[34px] md:text-[40px] leading-tight font-semibold text-black">
-            <TMText>إيليت يخوت</TMText>دبي — تأجير يخوت فاخرة وتجارب بحرية راقية
+          <h2 className="text-[20px] sm:text-[26px] md:text-[32px] leading-tight font-semibold text-black">
+            <TMText>Elite Yacht</TMText> Dubai — Luxury Yacht Rentals & Refined Sea Experiences
           </h2>
 
-          <p className="mt-4 text-[15px] sm:text-[16px] leading-relaxed text-black max-w-[760px]">
-            إذا كنت تبحث عن{" "}
-            <span className="font-semibold">تأجير يخوت فاخرة في دبي</span>{" "}
-            مع حجز سريع وخدمة منظمة، فإن{" "}
+          <p className="mt-4 text-[12.5px] sm:text-[13.5px] leading-relaxed text-black max-w-[760px]">
+            If you’re looking for{" "}
+            <span className="font-semibold">luxury yacht rental in Dubai</span>{" "}
+            with fast booking and a well-organized service,{" "}
             <span className="font-semibold">
-              <TMText>إيليت يخوت</TMText>
+              <TMText>Elite Yacht</TMText>
             </span>{" "}
-            تقدم لك تجربة واضحة من أول تواصل حتى نهاية الرحلة. ننطلق عادةً من{" "}
-            <span className="font-semibold">دبي مارينا</span>{" "}
-            مع خيارات تناسب العائلات والمجموعات، ورحلات الغروب، والمناسبات الخاصة.
+            delivers a clear experience from the first message until the end of your cruise. We typically depart from{" "}
+            <span className="font-semibold">Dubai Marina</span>{" "}
+            with options tailored for families, groups, sunset cruises, and private occasions.
           </p>
 
-          <p className="mt-4 text-[15px] sm:text-[16px] leading-relaxed text-black max-w-[760px]">
-            نهتم بالتفاصيل التي تصنع الفرق: اختيار اليخت المناسب، تنسيق وقت الإبحار،
-            تجهيزات الضيافة حسب الطلب، وتنظيم احترافي للصعود والنزول. هدفنا أن تحصل
-            على{" "}
-            <span className="font-semibold">يخت خاص في دبي</span>{" "}
-            بخصوصية تامة وخدمة راقية وتجربة VIP بدون تعقيد.
+          <p className="mt-4 text-[12.5px] sm:text-[13.5px] leading-relaxed text-black max-w-[760px]">
+            We focus on the details that matter: choosing the right yacht, coordinating the sailing time, arranging hospitality
+            on request, and ensuring smooth boarding and disembarkation. Our goal is to provide{" "}
+            <span className="font-semibold">a private yacht in Dubai</span>{" "}
+            with full privacy, premium service, and a VIP experience without complications.
           </p>
 
-          <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[14px] sm:text-[15px] text-black">
+          <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[12px] sm:text-[13px] text-black">
             {bullets.map((t, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-black/60 shrink-0" />
@@ -92,25 +91,25 @@ export default function AboutContainer() {
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
-              aria-label="احجز يخت عبر واتساب"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl border border-black bg-black text-white font-semibold text-[15px] shadow-[0_18px_55px_rgba(0,0,0,0.18)] transition hover:bg-black/90 active:scale-[0.99]"
+              aria-label="Book a yacht on WhatsApp"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl border border-black bg-black text-white font-semibold text-[13px] shadow-[0_18px_55px_rgba(0,0,0,0.18)] transition hover:bg-black/90 active:scale-[0.99]"
             >
               <FaWhatsapp className="text-[18px]" />
-              احجز عبر واتساب
+              Book on WhatsApp
             </a>
 
             <a
               href={PHONE}
-              aria-label="اتصل الآن لحجز يخت في دبي"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl border border-black/15 bg-white text-black font-semibold text-[15px] shadow-[0_18px_55px_rgba(0,0,0,0.12)] transition hover:bg-[#FAFAFA] active:scale-[0.99]"
+              aria-label="Call now to book a yacht in Dubai"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl border border-black/15 bg-white text-black font-semibold text-[13px] shadow-[0_18px_55px_rgba(0,0,0,0.12)] transition hover:bg-[#FAFAFA] active:scale-[0.99]"
             >
               <FaPhone className="text-[16px]" />
-              اتصل الآن
+              Call Now
             </a>
           </div>
 
-          <p className="mt-6 text-[12px] sm:text-[13px] text-black/70 tracking-wide">
-            تأجير يخوت دبي • دبي مارينا • حجز يخت دبي واتساب • رحلات VIP • يخت خاص في دبي
+          <p className="mt-6 text-[10px] sm:text-[11px] text-black/65 tracking-[0.16em] uppercase">
+            Yacht Rental Dubai • Dubai Marina • Book via WhatsApp • VIP Cruises • Private Yacht Dubai
           </p>
         </div>
 
@@ -126,7 +125,7 @@ export default function AboutContainer() {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white flex items-center justify-center shadow-[0_14px_35px_rgba(0,0,0,0.22)] ring-1 ring-black/10">
                   <img
                     src={logoMark}
-                    alt="شعار إيليت يخوت دبي"
+                    alt="Elite Yacht Dubai logo"
                     className="w-10 h-10 sm:w-12 sm:h-12 object-contain select-none pointer-events-none"
                     loading="lazy"
                     decoding="async"
@@ -137,7 +136,7 @@ export default function AboutContainer() {
 
               <img
                 src={yachtImg}
-                alt="تأجير يخوت فاخرة في دبي مارينا مع إيليت يخوت دبي"
+                alt="Luxury yacht rental in Dubai Marina with Elite Yacht Dubai"
                 className="w-full h-[290px] sm:h-[430px] object-cover"
                 loading="lazy"
                 decoding="async"
@@ -148,8 +147,8 @@ export default function AboutContainer() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.10),transparent_55%)]" />
 
               <div className="absolute top-4 right-4 z-10">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-[11px] tracking-wide text-white/90 backdrop-blur">
-                  <TMText>إيليت يخوت</TMText> • دبي
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-[10px] tracking-[0.14em] text-white/90 backdrop-blur uppercase">
+                  <TMText>Elite Yacht</TMText> • Dubai
                 </span>
               </div>
             </div>

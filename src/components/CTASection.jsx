@@ -5,26 +5,23 @@ function withBrandTM(input) {
 
   let out = input;
 
-  // Longest first
   out = out.replace(/\bElite\s+Yachts\b(?!\s*™)/gi, (m) => `${m}™`);
   out = out.replace(/\bElite\s+Yacht\b(?!\s*™)/gi, (m) => `${m}™`);
 
-  // Standalone Elite (not followed by Yacht(s) or ™)
   out = out.replace(/\bElite\b(?!\s*(Yachts|Yacht|™))/gi, (m) => `${m}™`);
 
   return out;
 }
 
 export default function CTASection({ variant = "fleet" }) {
-  // No gold anymore
-  const ACCENT = "#0F172A"; // subtle ink/navy
+  const ACCENT = "#0F172A";
   const [data, setData] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const ctrl = new AbortController();
 
-    fetch("/data/cta.json", {
+    fetch("/en/data/cta.json", {
       signal: ctrl.signal,
       cache: "force-cache",
     })
@@ -59,7 +56,7 @@ export default function CTASection({ variant = "fleet" }) {
 
   return (
     <section
-      dir="rtl"
+      dir="ltr"
       lang="ar"
       className="relative w-full bg-white overflow-hidden"
       style={{ ["--accent"]: ACCENT }}
@@ -86,9 +83,7 @@ export default function CTASection({ variant = "fleet" }) {
           </>
         ) : null}
 
-        {/* white-theme overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/55 to-white/85" />
-        {/* neutral glow (no gold) */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.10),transparent_62%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.02),transparent_35%,rgba(15,23,42,0.03))]" />
       </div>
@@ -126,16 +121,13 @@ export default function CTASection({ variant = "fleet" }) {
             {cta.note ? (
               <div className="mt-6 sm:mt-7 inline-flex max-w-full items-center justify-center gap-3 rounded-full border border-black/10 bg-white px-4 sm:px-5 py-2 text-[12px] sm:text-[13px] tracking-[0.08em] text-black/60 shadow-[0_10px_26px_rgba(15,23,42,0.08)]">
                 <i className="fa-solid fa-shield-halved text-[var(--accent)] shrink-0" />
-                {/* allow wrapping instead of overflow */}
                 <span className="text-center leading-[1.6] break-words">
                   {note}
                 </span>
               </div>
             ) : null}
 
-            {/* ✅ FIX: stack on mobile, side-by-side on sm+ */}
             <div className="mt-7 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-              {/* PRIMARY */}
               <a
                 href={cta.primary?.href || "#"}
                 target={isExternal(cta.primary?.href) ? "_blank" : undefined}
@@ -158,13 +150,10 @@ export default function CTASection({ variant = "fleet" }) {
                 {cta.primary?.icon ? (
                   <i className={cta.primary.icon} style={{ color: ACCENT }} />
                 ) : null}
-                {/* ✅ FIX: prevent overflow while keeping one-line look */}
                 <span className="text-[13px] sm:text-sm tracking-[0.04em] truncate max-w-[85vw] sm:max-w-none">
                   {primaryLabel}
                 </span>
               </a>
-
-              {/* SECONDARY */}
               <a
                 href={cta.secondary?.href || "#"}
                 target={isExternal(cta.secondary?.href) ? "_blank" : undefined}
@@ -192,9 +181,7 @@ export default function CTASection({ variant = "fleet" }) {
               </a>
             </div>
 
-            {/* Optional: tiny mobile helper spacing */}
             <div className="mt-1 sm:hidden text-[11px] text-black/40">
-              {/* keep empty or remove if you don’t want */}
             </div>
           </div>
         </div>

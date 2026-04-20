@@ -6,31 +6,31 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Schema from "./components/Schema";
 
-import Sitemap from "./pages/Sitemap";
+import SitemapEn from "./pages/SitemapEn";
+import OffersPackagesEn from "./pages/OffersPackagesEn";
 
 const Footer = lazy(() => import("./components/Footer"));
 
-const HomeAr = lazy(() => import("./pages/HomeAr"));
+const HomeEn = lazy(() => import("./pages/HomeEn"));
+const ServicesEn = lazy(() => import("./pages/ServicesEn"));
+const CorporateEn = lazy(() => import("./pages/CorporateEn"));
+const WaterSportsEn = lazy(() => import("./pages/WaterSportsEn"));
+const PackagesEn = lazy(() => import("./pages/PackagesEn"));
+const YachtsEn = lazy(() => import("./pages/YachtsEn"));
+const AboutEn = lazy(() => import("./pages/AboutEn"));
+const BestYachtCharterDubaiEn = lazy(() => import("./pages/BestYachtCharterDubaiEn"));
+const BlogsPageEn = lazy(() => import("./pages/BlogsPageEn"));
+const BlogDetailsPageEn = lazy(() => import("./pages/BlogDetailsPageEn"));
+const FAQEn = lazy(() => import("./pages/FAQEn"));
+const OwnerEn = lazy(() => import("./pages/OwnerEn"));
+const ContactEn = lazy(() => import("./pages/ContactEn"));
+const YachtDetailsEn = lazy(() => import("./pages/YachtDetailsEn"));
+const TermsEn = lazy(() => import("./pages/TermsEn"));
+const TeamEn = lazy(() => import("./pages/TeamEn"));
+const RefundPolicyEn = lazy(() => import("./pages/RefundPolicyEn"));
+const PrivacyPolicyEn = lazy(() => import("./pages/PrivacyPolicyEn"));
 
-const Services = lazy(() => import("./pages/Services"));
-const Corporate = lazy(() => import("./pages/Corporate"));
-const WaterSports = lazy(() => import("./pages/WaterSports"));
-const Packages = lazy(() => import("./pages/Packages"));
-const Yachts = lazy(() => import("./pages/Yachts"));
-const About = lazy(() => import("./pages/about"));
-const BestYachtCharterDubaiAr = lazy(() => import("./pages/BestYachtCharterDubaiAr"));
-const BlogsPage = lazy(() => import("./pages/BlogsPage"));
-const BlogDetailsPage = lazy(() => import("./pages/BlogDetailsPage"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const Owner = lazy(() => import("./pages/Owner"));
-const Contact = lazy(() => import("./pages/contact"));
-const YachtDetails = lazy(() => import("./pages/YachtDetails"));
-const Terms = lazy(() => import("./pages/Terms"));
-const Team = lazy(() => import("./pages/Team"));
-const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-
-const BASE_URL = "https://eliteyachtdubai.com";
+const BASE_URL = "https://eliteyachtdubai.com/ar";
 const ORG_ID = `${BASE_URL}/#organization`;
 const WEBSITE_ID = `${BASE_URL}/#website`;
 const LOCAL_ID = `${BASE_URL}/#localbusiness`;
@@ -40,10 +40,10 @@ const GlobalSchema = memo(function GlobalSchema() {
     {
       "@type": "Organization",
       "@id": ORG_ID,
-      "name": "إيليت يخوت دبي",
+      "name": "إيليت يخوت دبي™",
       "alternateName": ["إيليت يخوت", "Elite Yachts Dubai"],
-      "url": BASE_URL,
-      "logo": `${BASE_URL}/images/logo.png`,
+      "url": "https://eliteyachtdubai.com",
+      "logo": "https://eliteyachtdubai.com/images/logo.png",
       "telephone": "+971569006603",
       "address": {
         "@type": "PostalAddress",
@@ -56,21 +56,16 @@ const GlobalSchema = memo(function GlobalSchema() {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       "url": BASE_URL,
-      "name": "إيليت يخوت دبي",
+      "name": "إيليت يخوت دبي™",
       "inLanguage": "ar-AE",
-      "publisher": { "@id": ORG_ID },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": `${BASE_URL}/?s={search_term_string}`,
-        "query-input": "required name=search_term_string"
-      }
+      "publisher": { "@id": ORG_ID }
     },
     {
       "@type": "LocalBusiness",
       "@id": LOCAL_ID,
-      "name": "إيليت يخوت دبي",
+      "name": "إيليت يخوت دبي™",
       "url": BASE_URL,
-      "image": `${BASE_URL}/images/hero/hero-bg-1600.webp`,
+      "image": "https://eliteyachtdubai.com/images/hero/hero-bg-1600.webp",
       "telephone": "+971569006603",
       "address": {
         "@type": "PostalAddress",
@@ -82,23 +77,22 @@ const GlobalSchema = memo(function GlobalSchema() {
       "serviceType": "تأجير يخوت فاخرة في دبي مارينا"
     }
   ];
-
   return <Schema data={graph} />;
 });
 
-function NotFound() {
+function NotFoundEn() {
   return (
     <main dir="rtl" lang="ar" className="w-full bg-white text-black">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10 py-20 text-center">
         <p className="text-[12px] tracking-[0.35em] text-black/55 uppercase">404</p>
-        <h1 className="mt-3 text-[22px] sm:text-[30px] font-semibold text-black">
+        <h1 className="mt-3 text-[22px] sm:text-[30px] font-semibold">
           الصفحة غير موجودة
         </h1>
         <p className="mt-4 text-black/65 leading-relaxed">
-          الرابط الذي فتحته غير صحيح أو تم نقله. استخدم القائمة للعودة إلى الصفحات الرئيسية.
+          الرابط الذي فتحته غير صحيح أو تم نقله.
         </p>
         <a
-          href="/"
+          href="/ar"
           className="mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 border border-black bg-black text-white"
         >
           العودة إلى الرئيسية
@@ -112,75 +106,56 @@ export default function App() {
   const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setShowFooter(true), 1500);
+    const t = setTimeout(() => setShowFooter(true), 1200);
     return () => clearTimeout(t);
   }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const onKey = (e) => {
-      if (e.key === "Escape") {
-        const el = document.activeElement;
-        if (el && typeof el.blur === "function") el.blur();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  const RouteShell = () => (
-    <div className="w-full">
-      <div className="mx-auto max-w-[1400px] px-6 pt-6">
-        <div className="h-6 w-48 rounded bg-black/5" />
-        <div className="mt-4 h-10 w-[70%] rounded bg-black/5" />
-        <div className="mt-6 h-[260px] w-full rounded-2xl bg-black/5 ring-1 ring-black/10" />
-      </div>
-    </div>
-  );
 
   return (
     <div className="min-h-screen overflow-hidden bg-white text-black flex flex-col">
       <GlobalSchema />
-
       <Navbar />
       <ScrollToTop />
 
       <main className="pt-15 flex-1">
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/" element={<HomeAr />} />
+            <Route path="/" element={<HomeEn />} />
 
-            <Route path="/خدمات-تأجير-اليخوت-في-دبي" element={<Services />} />
-            <Route path="/الرياضات-المائية-في-دبي" element={<WaterSports />} />
-            <Route path="/فعاليات-الشركات-على-اليخت-في-دبي" element={<Corporate />} />
+            <Route path="/yachts" element={<YachtsEn />} />
+            <Route path="/:slug" element={<YachtDetailsEn />} />
 
-            <Route path="/عروض-اليخوت" element={<Packages />} />
-            <Route path="/فريقنا" element={<Team />} />
+            <Route path="/services" element={<ServicesEn />} />
+            <Route path="/water-sports" element={<WaterSportsEn />} />
+            <Route path="/corporate-events" element={<CorporateEn />} />
 
-            <Route path="/يخوتنا-يخت-النخبة-دبي" element={<Yachts />} />
-            <Route path="/مدونة" element={<BlogsPage />} />
-            <Route path="/مدونة/:slug" element={<BlogDetailsPage />} />
+            <Route path="/offers" element={<PackagesEn />} />
+            <Route path="/packages" element={<OffersPackagesEn />} />
 
-            <Route path="/من-نحن" element={<About />} />
-            <Route path="/افضل-شركة-تأجير-يخوت-في-دبي" element={<BestYachtCharterDubaiAr />} />
-            <Route path="/مالك-إيليت-يخوت" element={<Owner />} />
-            <Route path="/التعليمات" element={<FAQ />} />
-            <Route path="/اتصل-بنا-إيليت-يخت-دبي" element={<Contact />} />
+            <Route path="/about-us" element={<AboutEn />} />
+            <Route path="/team" element={<TeamEn />} />
+            <Route path="/guidelines" element={<FAQEn />} />
+            <Route path="/owner" element={<OwnerEn />} />
 
-            <Route path="/الشروط-والأحكام" element={<Terms />} />
-            <Route path="/سياسة-الاسترجاع-والاسترداد" element={<RefundPolicy />} />
-            <Route path="/سياسة-الخصوصية" element={<PrivacyPolicy />} />
+            <Route path="/best-yacht-company" element={<BestYachtCharterDubaiEn />} />
+            <Route path="/contact-us" element={<ContactEn />} />
 
-            <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/blogs" element={<BlogsPageEn />} />
+            <Route path="/blogs/:slug" element={<BlogDetailsPageEn />} />
 
-            <Route path="/:slug" element={<YachtDetails />} />
+            <Route path="/terms-and-conditions" element={<TermsEn />} />
+            <Route path="/refund-policy" element={<RefundPolicyEn />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyEn />} />
 
-            <Route path="*" element={<NotFound />} />
+            <Route path="/sitemap" element={<SitemapEn />} />
+
+
+            <Route path="*" element={<NotFoundEn />} />
           </Routes>
+
         </Suspense>
       </main>
 
-      <Suspense fallback={<RouteShell />}>
+      <Suspense fallback={null}>
         {showFooter ? <Footer /> : null}
       </Suspense>
     </div>
