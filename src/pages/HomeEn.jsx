@@ -23,9 +23,9 @@ function applyTM(input = "") {
 export default function HomeEn() {
   const canonical = "https://eliteyachtdubai.com/";
 
-  const title = "Luxury Yacht Rental Dubai | Elite Yacht Dubai™";
+  const title = "Yacht Rental in Dubai | Luxury Yacht Charters & Cruises – Elite Yacht Dubai";
   const description =
-    "Elite Yacht Dubai™ offers luxury yacht rentals in Dubai Marina for private cruises, VIP celebrations, birthdays, proposals, and corporate events. Transparent pricing, professional crew, and fast booking via WhatsApp or phone.";
+    "Experience the best yacht rentals in Dubai with Elite Yacht Dubai. We offer yachts for rent in Dubai at exceptional rates, private cruises, and party yachts for birthdays and special occasions in Dubai Marina and Palm Jumeirah. Book easily now.";
   const keywords =
     "yacht rental dubai, luxury yacht rental dubai, yacht charter dubai marina, private yacht dubai, VIP yacht dubai, dubai marina yacht, yacht party dubai, corporate yacht events dubai, sunset yacht cruise dubai, rent a yacht dubai";
 
